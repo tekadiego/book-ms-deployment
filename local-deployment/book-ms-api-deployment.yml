@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-ms-api
+spec:
+  selector:
+    matchLabels:
+      app: book-ms-api
+  template:
+    metadata:
+      labels:
+        app: book-ms-api
+    spec:
+      containers:
+      - name: book-ms-api
+        image: diegoteka/book-ms-api
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

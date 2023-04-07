@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+
+resources:
+  - book-ms-api-deployment.yml
+  - book-ms-client-deployment.yml
+  - book-ms-api-service.yml
+  - book-ms-client-service.yml
+  - book-ms-app-ingress.yml

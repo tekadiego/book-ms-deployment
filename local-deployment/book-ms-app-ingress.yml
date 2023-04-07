@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: book-ms-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: book-ms-client-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+      - backend:
+          service:
+            name: book-ms-api-svc
+            port:
+              number: 8080
+        path: /api/
+        pathType: Prefix
