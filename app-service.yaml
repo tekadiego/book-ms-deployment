@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-ms-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: book-ms
+  ports:
+    - port: 8080 #port of this service. Cluster members talk via this port
+      targetPort: 8080 #where container is actually running

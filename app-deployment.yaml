@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-ms-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: book-ms
+  template:
+    metadata:
+      labels:
+        app: book-ms
+    spec:
+      imagePullSecrets:
+      - name: book-ms-ecr
+      containers:
+        - name: book-ms-api
+          ports:
+            - containerPort: 8080
+          image: 190752870288.dkr.ecr.us-east-1.amazonaws.com/book-ms
